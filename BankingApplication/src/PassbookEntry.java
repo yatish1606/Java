@@ -1,17 +1,16 @@
 public class PassbookEntry {
-    private int transactionID;
+
     private String typeOftransaction;
-    private String nameOfPayee;
-    private String nameOfCredited;
+    private Person nameOfPayee;
+    private Person nameOfCredited;
     private double amount;
     private boolean isApproved;
 
     public PassbookEntry(){
-        this(0,"undefined","unknown", "unknown", 0, false);
+        this("undefined",new Person(), new Person(), 0, false);
     }
 
-    public PassbookEntry(int transactionID, String typeOftransaction, String nameOfPayee, String nameOfCredited, double amount, boolean isApproved) {
-        this.transactionID = transactionID;
+    public PassbookEntry(String typeOftransaction, Person nameOfPayee, Person nameOfCredited, double amount, boolean isApproved) {
         this.typeOftransaction = typeOftransaction;
         this.nameOfPayee = nameOfPayee;
         this.nameOfCredited = nameOfCredited;
@@ -19,7 +18,9 @@ public class PassbookEntry {
         this.isApproved = isApproved;
     }
 
-    public void newEntry(String typeOftransaction, String nameOfPayee, String nameOfCredited, double amount, boolean isApproved) {
-        //gnerate transactionID
+
+
+    public void printEntry() {
+        System.out.println("\n" + typeOftransaction + "\t" + nameOfPayee.getName() + "\t" + nameOfCredited.getName() + "\t" + amount + "\t" + isApproved);
     }
 }
