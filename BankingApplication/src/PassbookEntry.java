@@ -18,6 +18,14 @@ public class PassbookEntry {
         this.isApproved = isApproved;
     }
 
+    public PassbookEntry(String typeOftransaction, Person nameOfPayee, double amount, boolean isApproved) {
+        this.typeOftransaction = typeOftransaction;
+        this.nameOfPayee = nameOfPayee;
+        this.nameOfCredited = new Person();
+        this.amount = amount;
+        this.isApproved = isApproved;
+    }
+
 
 
     public void printEntry() {

@@ -7,6 +7,8 @@ public class BankingApplication {
         account.getAccountDetails();
         account.depositMoney(1000);
         account.withdrawMoney(5000);
+
+        account.transferMoney(account.getAccount(),new Account(),900);
         account.printPassbook();
     }
 
