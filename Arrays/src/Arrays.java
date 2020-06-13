@@ -5,7 +5,9 @@ public class Arrays {
     public static void main (String[] args) {
     int[] array = readArray(5);
     printArray(array);
-    printArray(sortArray(array,"ascending"));
+    printArray(sortArray(array,true));
+    System.out.println(getSmallestElement(array));
+    System.out.println(getLargestElement(array));
     }
 
     public static int[] readArray(int number) {
@@ -24,7 +26,7 @@ public class Arrays {
         System.out.println("\n");
     }
 
-    public static int[] sortArray(int[] array , String type) {
+    public static int[] sortArray(int[] array , boolean ascending) {
         int[] newArray = new int[array.length];
         boolean flag = true;
 
@@ -44,8 +46,8 @@ public class Arrays {
             }
         }
 
-        if(type == "ascending") {
-            for(int i = 0; i < newArray.length-1; i++) {
+        if(ascending) {
+            for(int i = 0; i < (newArray.length-1)/2; i++) {
                 int temp = newArray[i];
                 newArray[i] = newArray[newArray.length-i-1];
                 newArray[newArray.length-i-1] = temp;
@@ -53,5 +55,25 @@ public class Arrays {
         }
 
         return newArray;
+    }
+
+    public static int getSmallestElement(int[] array) {
+        int smallestNumber = array[0];
+        for(int i = 0; i < array.length; i++) {
+            if(array[i] < smallestNumber) {
+                smallestNumber = array[i];
+            }
+        }
+        return  smallestNumber;
+    }
+
+    public static int getLargestElement(int[] array) {
+        int largestNumber = array[0];
+        for(int i = 0; i < array.length; i++) {
+            if(array[i] > largestNumber) {
+                largestNumber = array[i];
+            }
+        }
+        return  largestNumber;
     }
 }
