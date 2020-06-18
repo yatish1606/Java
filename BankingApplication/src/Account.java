@@ -7,18 +7,25 @@ public class Account {
     private double accountBalance;
     private PassbookEntry[] passbook = new PassbookEntry[100];
     private int numberOfTransactions;
+    private String password;
 
     public Account() {
-        this(0,new Person(), 0);
+        this(0,new Person(), 0, "");
     }
 
-    public Account(long accountNumber, Person accountHolder, double accountBalance) {
+    public Account(long accountNumber, Person accountHolder, double accountBalance, String accountPassword) {
         this.accountNumber = accountNumber;
         this.accountHolder = accountHolder;
         this.accountBalance = accountBalance;
         this.numberOfTransactions = 0;
         this.passbook = new PassbookEntry[100];
+        this.password = accountPassword;
     }
+
+    public boolean authenticateUser(String accountPassword) {
+        return accountPassword.equals(this.password);
+    }
+
 
     public Account createNewAccount() {
 
@@ -33,7 +40,10 @@ public class Account {
         System.out.println("Enter account holder email address : ");
         String accountHolderEmailAddress = new Scanner(System.in).nextLine();
 
-        return new Account(accountNumber, new Person(accountHolderName,customerID,accountHolderEmailAddress), 0.0);
+        System.out.println("Enter account password : ");
+        String accountPassword = new Scanner(System.in).nextLine();
+
+        return new Account(accountNumber, new Person(accountHolderName,customerID,accountHolderEmailAddress), 0.0, accountPassword);
 
     }
 
