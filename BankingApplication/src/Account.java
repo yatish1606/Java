@@ -99,6 +99,8 @@ public class Account {
         } else {
             this.accountBalance -= amount;
             credited.getMoney(amount);
+            System.out.println("\nAmount of " + amount + " has been debited from your account and credited to " + payee.getName());
+            System.out.println("\nYour balance is " + this.accountBalance);
         }
 
         PassbookEntry newEntry = new PassbookEntry("Sent", this.accountHolder, amount, wasOK);
