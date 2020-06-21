@@ -22,6 +22,7 @@ public class MusicPlayer {
             if(albumIterator.next().getNameOfAlbum().equals("Rock")){
                 requiredAlbum = albumIterator.previous();
                 albumIterator.next();
+                break;
             }
         }
 
