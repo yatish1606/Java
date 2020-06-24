@@ -21,7 +21,7 @@ public class Album {
         for(Song eachSong : listOfSongs) {
             if(eachSong.getNameOfSong().equals(nameOfSong)) {
                 System.out.println("\nSong already exists in this album");
-                return;
+                return; 
             }
         }
         listOfSongs.add(new Song().addNewSong(nameOfSong,durationOfSong));
