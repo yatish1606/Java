@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -44,6 +45,37 @@ public class Main {
         interfaceObject.read(toWriteValuesForVideoFile);
         System.out.println(interfaceObject.toString());
 
-        
+        saveObject(interfaceObject);
+        loadObject(interfaceObject);
+
+
+    }
+
+    public static void saveObject(Saveable objectToSave) {
+        System.out.println("\nCycling through all items...");
+        for(int i = 0; i < objectToSave.write().size(); i++) {
+            System.out.println("Storing item " + objectToSave.write().get(i) + " to local storage");
+            System.out.println((i+1) + " of " + objectToSave.write().size());
+        }
+    }
+
+    public static void loadObject(Saveable objectToLoad) {
+        List<String> listToRead = new ArrayList<>();
+        System.out.println("Type 'exit' to exit else enter data");
+
+        Scanner input = new Scanner(System.in);
+        String itemToAdd = "";
+        boolean exit = false;
+        while(!exit) {
+            itemToAdd = input.nextLine();
+            listToRead.add(itemToAdd);
+            System.out.println(itemToAdd);
+            if(itemToAdd.equals("exit")) {
+                exit = true;
+                break;
+            }
+        }
+        System.out.println("Input stored successfully.");
+        objectToLoad.read(listToRead);
     }
 }
